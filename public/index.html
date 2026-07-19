@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌍 Tour Connect</h1>
+
+        <div id="message"></div>
+
+        <!-- ===================================== -->
+        <!-- CREATE TOUR -->
+        <!-- ===================================== -->
+
+        <div class="card">
+
+            <h2>Create New Tour</h2>
+
+            <form id="tourForm">
+
+                <input type="number"
+                    id="tour_id"
+                    placeholder="Tour ID"
+                    required>
+
+                <input type="text"
+                    id="title"
+                    placeholder="Title"
+                    required>
+
+                <textarea id="description"
+                    placeholder="Description"
+                    required></textarea>
+
+                <input type="text"
+                    id="pickup"
+                    placeholder="Pickup Location"
+                    required>
+
+                <input type="text"
+                    id="meeting"
+                    placeholder="Meeting Point"
+                    required>
+
+                <input type="text"
+                    id="dropoff"
+                    placeholder="Drop Off"
+                    required>
+
+                <input type="number"
+                    id="duration"
+                    placeholder="Duration"
+                    required>
+
+                <select id="duration_unit">
+
+                    <option value="days">
+                        Days
+                    </option>
+
+                    <option value="hours">
+                        Hours
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Create Tour
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- UPDATE TOUR -->
+        <!-- ===================================== -->
+
+        <div class="card hidden" id="updateCard">
+
+            <h2>Update Tour</h2>
+
+            <form id="updateForm">
+
+                <input type="hidden" id="update_id">
+
+                <input
+                    type="text"
+                    id="update_title"
+                    placeholder="Tour Title"
+                    required>
+
+                <input
+                    type="number"
+                    id="update_duration"
+                    placeholder="Duration"
+                    required>
+
+                <select id="update_duration_unit">
+
+                    <option value="days">
+                        Days
+                    </option>
+
+                    <option value="hours">
+                        Hours
+                    </option>
+
+                </select>
+
+                <div class="update-buttons">
+
+                    <button type="submit">
+                        Save Changes
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelUpdate">
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- TOUR LIST -->
+        <!-- ===================================== -->
+
+        <div class="card">
+
+            <h2>All Tours</h2>
+
+            <button onclick="loadTours()">
+                Refresh
+            </button>
+
+            <div id="tourList"></div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- DELETE CONFIRMATION MODAL -->
+    <!-- ===================================== -->
+
+    <div id="deleteModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <h2>Delete Tour</h2>
+
+            <p>
+                You are about to permanently delete:
+            </p>
+
+            <h3 id="deleteTourTitle" class="delete-tour-title">
+                Tour Name
+            </h3>
+
+            <p class="warning-text">
+                This action cannot be undone.
+            </p>
+
+            <div class="modal-buttons">
+
+                <button
+                    class="cancel-btn"
+                    onclick="closeDeleteModal()">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    class="delete-btn"
+                    id="confirmDelete">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
