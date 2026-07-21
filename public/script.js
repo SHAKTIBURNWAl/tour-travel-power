@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/tour";
+const API_URL = "/tour";
 
 const tourList = document.getElementById("tourList");
 const form = document.getElementById("tourForm");
